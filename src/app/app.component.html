@@ -1,0 +1,123 @@
+<div class="container mt-5 text-center">
+  <div (click)="onImageClick()">
+    <img class="rounded float-right" [src]="imageCoverUrl"/>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="page1/">page1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="page2/">page2</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col text-center">
+      <button type="button" class="btn btn-primary" routerLink="Home">Home</button>
+    </div>
+    <div class="col">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="page1/">page1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="page2/">page2</a>
+        </li>
+      </ul>
+
+    <div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  @if (major != '') {
+    <div>Major : {{major}} </div>
+  }
+</div>
+<div class="container mt-5">
+  @for (item of items; track $index) {
+    <div>{{$index}} {{item}} </div>
+  }
+</div>
+
+<div class="container mt-5">
+  @switch (size) {
+    @case ("S") {<div>Size S</div>}
+    @case ("M") {<div>Size M</div>}
+    @default {<div>Free Size</div>}
+  }
+</div>
+
+<div class="container mt-5">
+  @for (item of sizelist; track $index) {
+    @switch (item) {
+      @case ("S") {<div>Size S</div>}
+      @case ("M") {<div>Size M</div>}
+      @default {<div>Free Size</div>}
+    }
+  }
+</div>
+
+<div class="container mt-5">
+ <div>{{now}} </div>
+ <div>{{now | date}} </div>
+ <div>{{now | date: 'shortdate'}} </div>
+</div>
+
+<div class="container mt-5">
+  <div>{{number}} </div>
+  <div>{{number | number}} </div>
+  <div>{{number | number :'1.2-2'}} </div>
+</div>
+
+<div class="container mt-5">
+  <label for="first-name">First Name:</label>
+  <input id="name" type="text" [formControl]="names">
+  <p>Name: {{ names.value }} </p>
+</div>
+
+<div class="container mt-5">
+  <form [formGroup]="profileForm" (ngSubmit)="profileFormSubmit()" >
+    <label for="first-name"></label>
+    <input type="text" id="first-name" formControlName="first-name">
+    
+    <label for="last-name"></label>
+    <input type="text" id="last-name" formControlName="last-name">
+
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  </form>
+</div>
+
+
+<div class="container mt-5 bg-primary-subtle">
+  <div class="row">
+    <div class="col">
+      <button type="button" class="btn btn-primary" routerLink="Home">Home</button>
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-primary" routerLink="page1/">page1</button>
+    </div>
+    <div class="col">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="page1/">page1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="page2/">page2</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+</div>
+<div class="container mt-5">
+  <router-outlet />
+</div>
+

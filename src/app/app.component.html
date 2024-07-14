@@ -7,17 +7,26 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col">
-      <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="page1/">page1</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="page2/">page2</a>
-        </li>
-      </ul>
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-primary" (click)="onGetAll()">GET ALL</button>
+        </div>
+        <div class="col">
+          <button class="btn btn-primary" (click)="onGetById()">GET ID</button>
+        </div>
+        <div class="col">
+          <button class="btn btn-success" (click)="onPost()">POST</button>
+        </div>
+        <div class="col">
+          <button class="btn btn-info" (click)="onPut()">PUT</button>
+        </div>
+        <div class="col">
+          <button class="btn btn-danger" (click)="onDelete()">DELETE</button>
+        </div>
+      </div>
     </div>
     <div class="col text-center">
-      <button type="button" class="btn btn-primary" routerLink="Home">Home</button>
+      <button class="btn btn-primary" routerLink="Home">Home</button>
     </div>
     <div class="col">
       <ul class="nav">
@@ -83,10 +92,10 @@
 <div class="container mt-5">
   <form [formGroup]="profileForm" (ngSubmit)="profileFormSubmit()" >
     <label for="first-name"></label>
-    <input type="text" id="first-name" formControlName="first-name">
+    <input type="text" id="first-name" formControlName="firstName">
     
     <label for="last-name"></label>
-    <input type="text" id="last-name" formControlName="last-name">
+    <input type="text" id="last-name" formControlName="lastName">
 
     <button type="submit" [disabled]="!profileForm.valid">Submit</button>
   </form>
